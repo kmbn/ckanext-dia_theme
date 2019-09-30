@@ -52,6 +52,8 @@ def _modify(coord):
 
 def make_nav_links():
     current_url = request.environ['CKAN_CURRENT_URL']
+    if current_url[0] == "/":
+        current_url = current_url[1:]
     pages = [
         ("package", "search", "Search for datasets", "Datasets"),
         ("organization", "index", "Go to the organizations page", "Organizations"),
