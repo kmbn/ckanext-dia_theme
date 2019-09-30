@@ -4842,3 +4842,7 @@ h1 span {
   color: #666C7F;
 }
 
+body .site-footer hr {
+    border-color: #51AE32;
+}
+
