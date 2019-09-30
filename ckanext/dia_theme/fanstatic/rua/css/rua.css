@@ -4833,3 +4833,12 @@ h1 span {
     opacity: 1.0;
     z-index: 1000;
 }
+
+.bg-primary {
+  background-color: #EEEEEE;
+}
+
+.account.authed a {
+  color: #666C7F;
+}
+
