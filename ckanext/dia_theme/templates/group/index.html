@@ -1,6 +1,46 @@
 {% ckan_extends "group/index.html" %}
 
-{# completely remove the sidebar #}
-{% block secondary %}{% endblock %}
+{% block page_primary_action %}
+  {% if h.check_access('group_create') %}
+    <div class="page_primary_action">
+      {% link_for _('Add Group'), controller='package', action='new', class_='button', icon='plus-square' %}
+    </div>
+  {% endif %}
+{% endblock %}
 
-{% block primary_class %}span12{% endblock %}
+{% block pre_primary %}
+  <section class="search-result-heading">
+    {% block search_results_heading %}
+      {% snippet 'snippets/search_results_heading.html', type='group', query=c.q %}
+    {% endblock %}
+
+    {% set sorting = [
+      (_('Ascending'), 'name asc'),
+      (_('Descending'), 'name desc'),
+        ]
+    %}
+    {% snippet 'snippets/search_form.html', form_id='dataset-search-form', type='group', query=c.q, sorting=sorting, sorting_selected=c.sort_by_selected, count=c.page.item_count, facets=facets, show_empty=request.params, error=c.query_error, fields=c.fields, placeholder='Search groups...' %}
+  </section>
+{% endblock %}
+
+  {% block groups_search_form %}
+  {% block search_title %}
+    {% if not c.query_error %}
+      <h2>{% snippet 'snippets/search_result_text.html', query=c.q, count=c.page.item_count, type='group' %}</h2>
+    {% else %}
+      <h2>Error</h2>
+    {% endif %}
+  {% endblock %}
+
+  {% if show_empty and count == 0 and not error %}
+    {% trans %}
+      <p class="extra">Please try another search.</p>
+    {% endtrans %}
+  {% endif %}
+
+  {% if error %}
+    {% trans %}
+      <p id="search-error"><strong>There was an error while searching.</strong> Please try again.</p>
+    {% endtrans %}
+  {% endif %}
+  {% endblock %}

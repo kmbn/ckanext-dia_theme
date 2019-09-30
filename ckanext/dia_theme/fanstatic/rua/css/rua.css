@@ -4800,3 +4800,36 @@ body .site-footer hr {
 .secondary-five .sidebar-container,
 .secondary-five .sidebar-container__title {
   border-color: #ed7218; }
+
+.hero {
+  background: #ECEFF2 url(/dia/images/operandum_home.png);
+  padding: 60px 20px 60px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.site-banner__title {
+  color: #FFFF;
+}
+
+.site-banner__pattern {
+  opacity: 0.5;
+}
+
+.hero h1{
+  text-align: center;
+  padding-top:4%;
+  color: #FFF;
+}
+
+h1 span {
+    line-height: 1;
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+    font-size: 1.625rem;
+    color: #fff;
+    opacity: 1.0;
+    z-index: 1000;
+}

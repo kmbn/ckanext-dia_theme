@@ -19,4 +19,5 @@ class Dia_ThemePlugin(plugins.SingletonPlugin):
         return {
             'parent_site_url': helpers.parent_site_url,
             'modify_geojson': helpers.modify_geojson,
+            'make_nav_links': helpers.make_nav_links,
         }

@@ -1,5 +1,6 @@
-from ckan.common import config
+from ckan.common import config, request
 import ckan.plugins.toolkit as toolkit
+from ckan.lib.helpers import url_for
 import json
 
 
@@ -47,3 +48,29 @@ def _modify(coord):
     if lat < 0:
         lat = lat + 360
     return [lat, long]
+
+
+def make_nav_links():
+    current_url = request.environ['CKAN_CURRENT_URL']
+    pages = [
+        ("package", "search", "Search for datasets", "Datasets"),
+        ("organization", "index", "Go to the organizations page", "Organizations"),
+        ("group", "index", "Go to the groups page", "Groups"),
+        ("home.about", None, "Go to the about page", "About"),
+        ("user.login", None, "Go to the log in page", "Log in"),
+        ("user.register", None, "Go to the registration page", "Register"),
+    ]
+    links = []
+    for controller, action, title, text in pages:
+        url = url_for(controller, action).replace("package", "dataset")
+        if url[0] == "/":
+            url = url[1:]
+        if url == current_url:
+            _class = "site-header__menu-item menu-item current"
+        else:
+            _class = "site-header__menu-item menu-item"
+        site_url = toolkit.config.get("ckan.site_url") + "/" + url
+        links.append(
+            (site_url, _class, title, text)
+            )
+    return links

@@ -10,52 +10,46 @@
 				<ul class="menu vertical md-2-column site-footer__menu">
 
 						<li>
-							<a href="{{ h.parent_site_url() }}/" class="link">
+							<a href="{{ h.url_for("home.index") }}/" class="link">
 								Home
 							</a>
 						</li>
 
 						<li>
-							<a href="/dataset" class="link">
-								Get datasets
+							<a href="{{ h.url_for("dataset") }}/" class="link">
+								Datasets
 							</a>
 						</li>
 
 						<li>
-							<a href="{{ h.parent_site_url() }}/manage-data/" class="link">
-								Manage data
+							<a href="{{ h.url_for("organization") }}/" class="link">
+								Organizations
 							</a>
 						</li>
 
 						<li>
-							<a href="{{ h.parent_site_url() }}/use-data/" class="link">
-								Use data
+							<a href="{{ h.url_for("group") }}/" class="link">
+								Groups
 							</a>
 						</li>
 
 						<li>
-							<a href="{{ h.parent_site_url() }}/open-data/" class="link">
-								Open data
-							</a>
-						</li>
-
-						<li>
-							<a href="{{ h.parent_site_url() }}/events/" class="link">
-								Events
-							</a>
-						</li>
-
-						<li>
-							<a href="{{ h.parent_site_url() }}/blog/" class="current">
-								Blog
-							</a>
-						</li>
-
-						<li>
-							<a href="{{ h.parent_site_url() }}/about/" class="link">
+							<a href="{{ h.url_for("home.about") }}/" class="link">
 								About
 							</a>
+
+						<li>
+							<a href="{{ h.url_for("user.register") }}" class="link">
+								Register
+							</a>
 						</li>
+
+						<li>
+							<a href="{{ h.url_for("user.login") }}" class="link">
+								Log in
+							</a>
+						</li>
+
 
 				</ul>
 			</div>
@@ -67,26 +61,20 @@
 				<ul class="menu vertical site-footer__menu">
 
 						<li>
-							<a href="{{ h.parent_site_url() }}/terms-of-use/" class="link">
+							<a href={{ h.url_for("home.about") }}/ class="link">
 								Terms of use
 							</a>
 						</li>
 
 						<li>
-							<a href="{{ h.parent_site_url() }}/privacy-policy/" class="link">
+							<a href={{ h.url_for("home.about") }}/ class="link">
 								Privacy policy
 							</a>
 						</li>
 
 						<li>
-							<a href="{{ h.parent_site_url() }}/copyright/" class="link">
+							<a href={{ h.url_for("home.about") }}/ class="link">
 								Copyright
-							</a>
-						</li>
-
-						<li>
-							<a href="/user/login" class="link">
-								Publisher login
 							</a>
 						</li>
 
@@ -100,33 +88,21 @@
 				<ul class="menu vertical site-footer__menu">
 
 						<li>
-							<a href="{{ h.parent_site_url() }}/contact-us/" class="link">
+							<a href="https://www.operandum-project.eu/contact/" class="link">
 								Contact us
-							</a>
-						</li>
-
-						<li>
-							<a href="{{ h.parent_site_url() }}/feedback/" class="link">
-								Give us feedback
-							</a>
-						</li>
-
-						<li>
-							<a href="https://github.com/data-govt-nz" class="link">
-								Github
-							</a>
-						</li>
-
-						<li>
-							<a href="{{ h.parent_site_url() }}/request-data/" class="link">
-								Request a dataset
 							</a>
 						</li>
 
 				</ul>
 				<ul class="social-menu">
 					<li>
-						<a href="https://twitter.com/data_govt_nz" aria-label="See data.govt.nz on Twitter" class="ri ri-twitter"></a>
+						<a href="https://twitter.com/OPERANDUM_EU" aria-label="Follow the Operandum project on Twitter" class="ri ri-twitter"></a>
+					</li>
+					<li>
+						<a href="https://www.facebook.com/OPERANDUMproject/" aria-label="Follow the Operandum project on Facebook" class="ri ri-facebook"></a>
+					</li>
+					<li>
+						<a href="https://www.linkedin.com/company/operandum-project/" aria-label="Follow the Operandum project on LinkedIn" class="ri ri-linkedin"></a>
 					</li>
 				</ul>
 			</div>
@@ -137,17 +113,16 @@
 			<div class="site-footer__col-copyright">
 				<div class="row">
 					<div class="col-md-3">
-						<img src="/dia/images/cc_icons.png" alt="CC BY 4.0" width="83">
+						<img src="/dia/images/eu_flag.jpg" alt="Flag of the European Union" width="83">
 					</div>
 					<div class="col-md-9">
-						<small>Unless indicated otherwise, all content on data.govt.nz is licensed for re-use under a <a class="external" href="https://creativecommons.org/licenses/by/4.0/" rel="external license">Creative Commons 4.0 International Licence&nbsp;<span class="ri  ri-external-link" aria-label="(external site link)"></span></a></small><br>
-						<small>Crown copyright 2018</small>
+						<small>This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 776848.<br/>All rights reserved.</small>
 					</div>
 				</div>
 			</div>
 			<div class="site-footer__col-logo">
 				<a href="https://www.govt.nz" aria-label="New Zealand Government">
-					<img src="/dia/images/footer-logo-govt.png" alt="New Zealand Government" width="179">
+					<img src="{{ h.url_for_static_or_external(g.site_logo) }}" alt="{{ g.site_title }}" title="{{ g.site_title }}" width="179" />
 				</a>
 			</div>
 		</div>
