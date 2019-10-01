@@ -34,7 +34,7 @@
           {%- for group in groups -%}
 
             <li>
-              <a href="{{ h.url_for(controller="group", action="show", id=group.id) }}" class="category-select">{{ group.display_name }}</a>
+              <a href={{ h.url_for(controller="group", action="read", id=group.name) }} class="category-select">{{ group.display_name }}</a>
             </li>
           {%- endfor -%}
 
