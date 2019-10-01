@@ -52,8 +52,8 @@ def _modify(coord):
 
 def make_nav_links():
     current_url = request.environ['CKAN_CURRENT_URL']
-    if current_url[0] == "/":
-        current_url = current_url[1:]
+    if current_url[0] != "/":
+        current_url = "/{}".format(current_url)
     pages = [
         ("package", "search", "Search for datasets", "Datasets"),
         ("organization", "index", "Go to the organizations page", "Organizations"),
@@ -65,14 +65,13 @@ def make_nav_links():
     links = []
     for controller, action, title, text in pages:
         url = url_for(controller, action).replace("package", "dataset")
-        if url[0] == "/":
-            url = url[1:]
+        if url[0] != "/":
+            url = "/{}".format(url)
         if url == current_url:
             _class = "site-header__menu-item menu-item current"
         else:
             _class = "site-header__menu-item menu-item"
-        site_url = toolkit.config.get("ckan.site_url") + "/" + url
         links.append(
-            (site_url, _class, title, text)
+            (url, _class, title, text)
             )
     return links
