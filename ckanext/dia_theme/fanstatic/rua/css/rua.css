@@ -3855,7 +3855,7 @@ blockquote,
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
   padding: 1.5em 2em;
-  background: #ECEFF2 url("/rua/assets/tic-tac-toe.png"); }
+  background: #ECEFF2 }
   blockquote h1,
   blockquote .h1,
   blockquote h2,
@@ -4468,7 +4468,7 @@ td {
   color: #ed7218; }
 
 .site-banner {
-  background: #ECEFF2 url("/rua/assets/tic-tac-toe.png");
+  background: #ECEFF2;
   padding: 20px;
   position: relative;
   overflow: hidden; }
@@ -4583,7 +4583,7 @@ td {
   position: relative;
   overflow: hidden; }
   .site-footer__navigation {
-    background: #ECEFF2 url("/rua/assets/tic-tac-toe.png");
+    background: #ECEFF2;
     padding: 0; }
   .site-footer__title,
   .site-footer h1,
