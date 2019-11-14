@@ -197,7 +197,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background-color: #EEEEEE;
+  background: #FFFFFF;
 }
 a {
   color: #004a61;
@@ -11062,9 +11062,7 @@ header textarea:focus,
     background-color: #117799;
   }
 }
-body {
-  background: #117799 url("../../../base/images/bg.png");
-}
+
 [hidden] {
   display: none;
 }
